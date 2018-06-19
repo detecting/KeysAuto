@@ -2,40 +2,62 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using KeysAuto.PublicPandM;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace KeysAuto.Pages
 {
     [Binding]
     [Scope(Scenario = "Login success")]
-    public sealed  class Login
+    public sealed class Login
     {
+        //context injection
+        public LoginInfo LoginInfo { get; set; }
+        public string userName;
+        public string password;
+
+
+        public Login(LoginInfo loginInfo)
+        {
+            this.LoginInfo = loginInfo;
+            //initial the LoginPage
+        }
+
         [Given(@"I have open the application")]
         public void GivenIHaveOpenTheApplication()
         {
-
+            Browser browser = new Browser();
         }
 
-        [Then(@"I should see the Login Page")]
-        public void ThenIShouldSeeTheLoginPage()
+        [Then(@"I should see the Login Page title is ""(.*)""")]
+        public void ThenIShouldSeeTheLoginPageTitleIs(string title)
         {
+            Assert.AreEqual(PublicPandM.PropertiesAndMethods._driver.Title, title);
         }
 
-        [When(@"I fill (.*) and (.*) in form")]
-        public void WhenIFillAndInForm(string userName, string password)
+        [When(@"I fill userName and password in form tick Remember Me and click Login Button")]
+        public void WhenIFillUserNameAndPasswordInFormTickRememberMeAndClickLoginButton(Table table)
         {
-            ScenarioContext.Current.Pending();
+            //get the username and passwd from table;
+            var data = table.CreateDynamicSet();
+            foreach (var item in data)
+            {
+                LoginInfo.UserName = item.UserName;
+                LoginInfo.Password = item.Password;
+            }
+
+            //need to initialize here.
+            LoginPage loginPage = new LoginPage();
+            loginPage.FillNameAndPs(LoginInfo.UserName, LoginInfo.Password);
+            loginPage.ClickRemAndBtn();
         }
 
-
-        [When(@"I tick the Remember Me and Login Button")]
-        public void WhenITickTheRememberMeAndLoginButton()
+        [Then(@"I will get into the ""(.*)"" Page")]
+        public void ThenIWillGetIntoThePage(string dashboard)
         {
-        }
-
-        [Then(@"I will get into the Dashboard Page")]
-        public void ThenIWillGetIntoTheDashboardPage()
-        {
+            Assert.AreEqual(PublicPandM.PropertiesAndMethods._driver.Title, dashboard);
         }
     }
 }

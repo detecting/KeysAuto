@@ -75,7 +75,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 6
  testRunner.Given("I have open the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
- testRunner.Then("I should see the Login Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should see the Login Page title is \"Log In\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName",
@@ -84,11 +84,9 @@ this.ScenarioSetup(scenarioInfo);
                         "hm.z@outlook.com",
                         "morgan1985"});
 #line 8
- testRunner.When("I fill <UserName> and <Password> in form", ((string)(null)), table1, "When ");
+ testRunner.When("I fill userName and password in form tick Remember Me and click Login Button", ((string)(null)), table1, "When ");
 #line 11
- testRunner.And("I tick the Remember Me and Login Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
- testRunner.Then("I will get into the Dashboard Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I will get into the \"Dashboard\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -98,11 +96,11 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void LoginFail()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login fail", ((string[])(null)));
-#line 14
+#line 13
  this.ScenarioSetup(scenarioInfo);
-#line 15
+#line 14
  testRunner.Given("I have open the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 16
+#line 15
  testRunner.Then("I should see the Login Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -111,11 +109,11 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "hm.z@outlook.com",
                         "morgan198"});
-#line 17
+#line 16
  testRunner.When("I fill <UserName> and <Password> in form", ((string)(null)), table2, "When ");
-#line 20
+#line 19
  testRunner.And("I tick the Remember Me and Login Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 21
+#line 20
  testRunner.Then("I will get see the error information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

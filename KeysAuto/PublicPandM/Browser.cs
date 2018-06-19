@@ -14,17 +14,14 @@ namespace KeysAuto.PublicPandM
     /// </summary>
     class Browser
     {
-        public static IWebDriver Driver { get; set; }
-        private IWindow window = Driver.Manage().Window;
-        public void BrowserInitial()
+
+        public Browser()
         {
-            //open chrome
-            PublicPandM.PropertiesAndMethods._driver=new ChromeDriver();
-            Driver = PublicPandM.PropertiesAndMethods._driver;
+            PublicPandM.PropertiesAndMethods._driver = new ChromeDriver();
             //wait for page for 8s
-            Driver.Manage().Timeouts().ImplicitWait=TimeSpan.FromSeconds(8);
-            Driver.Navigate().GoToUrl(PublicPandM.PropertiesAndMethods.url);
-            window.Maximize();
+            PublicPandM.PropertiesAndMethods._driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(8);
+            PublicPandM.PropertiesAndMethods._driver.Navigate().GoToUrl(PublicPandM.PropertiesAndMethods.url);
+            PublicPandM.PropertiesAndMethods._driver.Manage().Window.Maximize();
         }
     }
 }
