@@ -1,8 +1,8 @@
-﻿Feature: Login Add properties and check 
-	Feature for Product Owner to login the page.
+﻿Feature: Login
+	
 	
 @Login
-Scenario: Login success
+Scenario: Login
 	Given I have open the application
 	Then I should see the Login Page title is "Log In"
 	When I fill userName and password in form tick Remember Me and click Login Button
@@ -19,9 +19,13 @@ Scenario: Login success
 	#And I tick the Remember Me and Login Button 
 	#Then I will get see the error information
 
-	@Move to Properties page
-	Scenario: MovetoPropertiesPage
-	Given at the Dashboard page
-	When I select "Properties" under Owner
-	Then I will go to "Properties | Property Community" Page
+#need to login first
+
+
+Scenario: Add New Property
+#	Given open the New Property page
+#	When I fill up the Property Details form
+#
+#	And I click Next button
+#	Then move to Finance details Page
 

@@ -18,20 +18,20 @@ namespace KeysAuto.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Login")]
-    public partial class LoginFeature
+    [NUnit.Framework.DescriptionAttribute("MoveToProperties")]
+    public partial class MoveToPropertiesFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Login.feature"
+#line 1 "MoveToProperties.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Login", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "MoveToProperties", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -63,18 +63,12 @@ namespace KeysAuto.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Login")]
-        [NUnit.Framework.CategoryAttribute("Login")]
-        public virtual void Login()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login", new string[] {
-                        "Login"});
-#line 5
-this.ScenarioSetup(scenarioInfo);
-#line 6
+#line 2
+#line 3
  testRunner.Given("I have open the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 7
+#line 4
  testRunner.Then("I should see the Login Page title is \"Log In\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -83,21 +77,34 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "hm.z@outlook.com",
                         "morgan1985"});
-#line 8
+#line 5
  testRunner.When("I fill userName and password in form tick Remember Me and click Login Button", ((string)(null)), table1, "When ");
-#line 11
+#line 8
  testRunner.Then("I will get into the \"Dashboard\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add New Property")]
-        public virtual void AddNewProperty()
+        [NUnit.Framework.DescriptionAttribute("Move to Properties Page")]
+        [NUnit.Framework.CategoryAttribute("Move")]
+        [NUnit.Framework.CategoryAttribute("to")]
+        [NUnit.Framework.CategoryAttribute("Properties")]
+        [NUnit.Framework.CategoryAttribute("page")]
+        public virtual void MoveToPropertiesPage()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add New Property", ((string[])(null)));
-#line 25
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Move to Properties Page", new string[] {
+                        "Move",
+                        "to",
+                        "Properties",
+                        "page"});
+#line 12
 this.ScenarioSetup(scenarioInfo);
+#line 2
+this.FeatureBackground();
+#line 14
+ testRunner.When("I select \"Properties\" under Owner", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 15
+ testRunner.Then("I will go to \"Properties | Property Community\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

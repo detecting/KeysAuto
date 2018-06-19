@@ -10,7 +10,7 @@ using TechTalk.SpecFlow.Assist;
 namespace KeysAuto.Pages
 {
     [Binding]
-//    [Scope(Scenario = "Login success")]
+//    [Scope(Scenario = "Login")]
     public sealed class Login
     {
         //context injection
@@ -26,6 +26,7 @@ namespace KeysAuto.Pages
         {
             Browser browser = new Browser();
         }
+
 
         [Then(@"I should see the Login Page title is ""(.*)""")]
         public void ThenIShouldSeeTheLoginPageTitleIs(string title)
@@ -57,10 +58,10 @@ namespace KeysAuto.Pages
         {
             Assert.AreEqual(PublicPandM.PropertiesAndMethods._driver.Title, dashboard);
         }
+
         [Given(@"at the Dashboard page")]
         public void GivenAtTheDashboardPage()
         {
-            ScenarioContext.Current.Pending();
         }
 
         [When(@"I select ""(.*)"" under Owner")]
