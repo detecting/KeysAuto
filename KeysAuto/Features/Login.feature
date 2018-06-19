@@ -1,4 +1,4 @@
-﻿Feature: Login
+﻿Feature: Login Add properties and check 
 	Feature for Product Owner to login the page.
 	
 @Login
@@ -10,12 +10,18 @@ Scenario: Login success
 	| hm.z@outlook.com | morgan1985 |
 	Then I will get into the "Dashboard" Page
 
-	Scenario: Login fail
-	Given I have open the application
-	Then I should see the Login Page
-	When I fill <UserName> and <Password> in form
-	| UserName         | Password   |
-	| hm.z@outlook.com | morgan198 |
-	And I tick the Remember Me and Login Button 
-	Then I will get see the error information
+	#Scenario: Login fail
+	#Given I have open the application
+	#Then I should see the Login Page
+	#When I fill <UserName> and <Password> in form
+	#| UserName         | Password   |
+	#| hm.z@outlook.com | morgan198 |
+	#And I tick the Remember Me and Login Button 
+	#Then I will get see the error information
+
+	@Move to Properties page
+	Scenario: MovetoPropertiesPage
+	Given at the Dashboard page
+	When I select "Properties" under Owner
+	Then I will go to "Properties | Property Community" Page
 

@@ -86,10 +86,12 @@
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\DashboardPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\PropertyOwnersPage.cs" />
     <Compile Include="PublicPandM\Browser.cs" />
     <Compile Include="StepDefination\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicPandM\PropertiesAndMethods.cs" />
+    <Compile Include="StepDefination\MoveToPropertis.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

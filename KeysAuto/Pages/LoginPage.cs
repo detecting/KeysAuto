@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using static KeysAuto.PublicPandM.PropertiesAndMethods;
 
 namespace KeysAuto.Pages
 {
@@ -12,7 +13,7 @@ namespace KeysAuto.Pages
     {
         public LoginPage()
         {
-            PageFactory.InitElements(PublicPandM.PropertiesAndMethods._driver, this);
+            PageFactory.InitElements(_driver, this);
         }
 
         [FindsBy(How = How.Id, Using = "UserName")]

@@ -10,19 +10,15 @@ using TechTalk.SpecFlow.Assist;
 namespace KeysAuto.Pages
 {
     [Binding]
-    [Scope(Scenario = "Login success")]
+//    [Scope(Scenario = "Login success")]
     public sealed class Login
     {
         //context injection
         public LoginInfo LoginInfo { get; set; }
-        public string userName;
-        public string password;
-
 
         public Login(LoginInfo loginInfo)
         {
             this.LoginInfo = loginInfo;
-            //initial the LoginPage
         }
 
         [Given(@"I have open the application")]
@@ -49,6 +45,8 @@ namespace KeysAuto.Pages
             }
 
             //need to initialize here.
+            //initial the LoginPage
+
             LoginPage loginPage = new LoginPage();
             loginPage.FillNameAndPs(LoginInfo.UserName, LoginInfo.Password);
             loginPage.ClickRemAndBtn();
@@ -58,6 +56,24 @@ namespace KeysAuto.Pages
         public void ThenIWillGetIntoThePage(string dashboard)
         {
             Assert.AreEqual(PublicPandM.PropertiesAndMethods._driver.Title, dashboard);
+        }
+        [Given(@"at the Dashboard page")]
+        public void GivenAtTheDashboardPage()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [When(@"I select ""(.*)"" under Owner")]
+        public void WhenISelectUnserOwner(string properties)
+        {
+            DashboardPage dashboardPage = new DashboardPage();
+            dashboardPage.SelectPropertiesUnderOwner(properties);
+        }
+
+        [Then(@"I will go to ""(.*)"" Page")]
+        public void ThenIWillGoToPage(string properties)
+        {
+            Assert.AreEqual(PublicPandM.PropertiesAndMethods._driver.Title, properties);
         }
     }
 }
