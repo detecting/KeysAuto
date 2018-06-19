@@ -14,7 +14,7 @@ namespace KeysAuto.Pages
 {
     class DashboardPage : BasePage
     {
-//        private string properies = "Properties";
+        //        private string properies = "Properties";
 
         public DashboardPage()
         {
@@ -30,8 +30,11 @@ namespace KeysAuto.Pages
         IWebElement LinkDashboard { get; set; }
 
         [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div/div[2]/div[1]/div")]
-        IWebElement LinkOwners { get; set; }
+        IWebElement ListOwners { get; set; }
 
+        ///html/body/div[1]/div/div[2]/div[1]
+        [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div/div[2]/div[1]")]
+        IWebElement ClickOwner { get; set; }
         [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div/div[2]/a[2]")]
         IWebElement LinkPropertiesForRent { get; set; }
 
@@ -53,24 +56,22 @@ namespace KeysAuto.Pages
 
         public PropertyOwnersPage SelectPropertiesUnderOwner(string properies)
         {
+            IWebElement toBeSelect = null;
             //show the page
             BtnSkip.Click();
-            Thread.Sleep(1500);
+            Thread.Sleep(1000);
+            ClickOwner.Click();
             //get the list of Owner
-            var lists = LinkOwners.FindElements(By.TagName("a"));
+            var lists = ListOwners.FindElements(By.TagName("a"));
             foreach (var item in lists)
             {
-                Console.WriteLine(item.Text);
-
-
-                string a = item.GetAttribute("innerHTML");
-                Console.WriteLine(a);
-                if (a == properies)
+                //delete the space and \n\r of the string, if cant
+                if (item.GetAttribute("text").Replace(System.Environment.NewLine, string.Empty).Trim() == properies)
                 {
-                    item.Click();
+                    toBeSelect = item;
                 }
             }
-
+            toBeSelect.Click();
             return new PropertyOwnersPage();
         }
     }
