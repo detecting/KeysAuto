@@ -108,13 +108,8 @@ testRunner.Given("I am at the PropertyOwners page", ((string)(null)), ((TechTalk
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "PropertyName",
+                        "PropertyType",
                         "SearchAddress",
-                        "Number",
-                        "Street",
-                        "Suburb",
-                        "City",
-                        "PostCode",
-                        "Region",
                         "TargetRent",
                         "LandArea",
                         "FloorArea",
@@ -126,13 +121,8 @@ testRunner.Given("I am at the PropertyOwners page", ((string)(null)), ((TechTalk
                         "Rent Type"});
             table2.AddRow(new string[] {
                         "Morgan House",
+                        "Senior Housing",
                         "20 Canberra Avenue, Lynfield, Auckland, New Zealand",
-                        "20",
-                        "Canberra Avenue",
-                        "Lynfield",
-                        "Auckland",
-                        "1042",
-                        "Auckland",
                         "300",
                         "300",
                         "300",

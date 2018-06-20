@@ -101,7 +101,7 @@ namespace KeysAuto.Pages
             Table table)
         {
             AddNewPropertyPage addNewPropertyPage=new AddNewPropertyPage();
-            addNewPropertyPage.enterContextIntoSearchAddress();
+
         }
 
         [Then(@"should mobe to ""(.*)"" Page")]

@@ -26,18 +26,75 @@ namespace KeysAuto.Pages
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"autocomplete\"]")]
         IWebElement InputSearchAddress { get; set; }
-        //
-        //        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[3]/div[2]/div[1]/textarea")]
-        //        public IWebElement TextareaDescription { get; set; }
-        //
-        //        [FindsBy(How = How.Id, Using = "street_number")]
-        //        public IWebElement InputNumber { get; set; }
-        //
-        //        [FindsBy(How = How.XPath, Using = "//*[@id=\"route\"]")]
-        //        public IWebElement InputStreet { get; set; }
 
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[4]/div/div[1]/div[1]/input")]
+        IWebElement InputTargetRent { get; set; }
 
-        public void enterContextIntoSearchAddress()
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[4]/div/div[2]/div")]
+        IWebElement DdpRentType { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[5]/div[1]/div/input")]
+        IWebElement InputLandArea { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[5]/div[2]/div/input")]
+        IWebElement InputFloorArea { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[6]/div[1]/div[1]/input")]
+        IWebElement InputBedrooms { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[6]/div[2]/div[1]/input")]
+        IWebElement InputBathrooms { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[7]/div[1]/div[1]/input")]
+        IWebElement InputCarparks { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[7]/div[2]/div[1]/input")]
+        IWebElement InputYearBuilt { get; set; }
+
+        public void PropertyName(string propertyName)
+        {
+            InputPropertyName.Clear();
+            InputPropertyName.SendKeys(propertyName);
+        }
+
+        public void PropertyType(string propertyType)
+        {
+
+        }
+
+        public void TargetRent(string targetRent)
+        {
+        }
+
+        public void RentType(string rentType)
+        {
+        }
+
+        public void LandArea(int landArea)
+        {
+        }
+
+        public void FloorArea(int floorArea)
+        {
+        }
+
+        public void Bedrooms(int bedrooms)
+        {
+        }
+
+        public void Bathrooms(int bathrooms)
+        {
+        }
+
+        public void Carparks(int carparks)
+        {
+        }
+
+        public void YearBuilt(int yearBuilt)
+        {
+        }
+
+        public void SearchAddress()
         {
             //clean the InputSearchAddress input
             InputSearchAddress.Clear();
@@ -45,8 +102,8 @@ namespace KeysAuto.Pages
             InputSearchAddress.SendKeys(searchAdd);
             Thread.Sleep(1000);
             //press down key
-            //Actions actions = new Actions(PublicPandM.PropertiesAndMethods._driver);
             InputSearchAddress.SendKeys(Keys.ArrowDown);
+            //press the enter key
             InputSearchAddress.SendKeys(Keys.Enter);
         }
     }

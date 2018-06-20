@@ -16,6 +16,6 @@ Given I am at the PropertyOwners page
 	When I click the  Add New Property button
 	Then the Page will navigate to "Properties | Add New Property" Page
 	When i fill the Property Details with the data from form below and also tick Owner Occupied and click Next button
-	| PropertyName | SearchAddress                                       | Number | Street | Suburb | City | PostCode | Region | TargetRent | LandArea | FloorArea | Bedroom | Bathroom | ParkingSpace | YearBuilt | Description | Rent Type |
-	| Morgan House | 20 Canberra Avenue, Lynfield, Auckland, New Zealand | 20     | Canberra Avenue | Lynfield | Auckland | 1042     | Auckland | 300        | 300      | 300       | 3       | 2        | 2            | 2015      | Good Condition | Weekly    |
+	| PropertyName | PropertyType   | SearchAddress                                       | TargetRent | LandArea | FloorArea | Bedroom | Bathroom | ParkingSpace | YearBuilt | Description    | Rent Type |
+	| Morgan House | Senior Housing | 20 Canberra Avenue, Lynfield, Auckland, New Zealand | 300        | 300      | 300       | 3       | 2        | 2            | 2015      | Good Condition | Weekly    |
 	Then should mobe to "Finance Details" Page
