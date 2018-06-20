@@ -76,5 +76,37 @@ namespace KeysAuto.Pages
         {
             Assert.AreEqual(PublicPandM.PropertiesAndMethods._driver.Title, properties);
         }
+
+        [Given(@"I am at the PropertyOwners page")]
+        public void GivenIAmAtThePropertyOwnersPage()
+        {
+        }
+
+        [When(@"I click the  Add New Property button")]
+        public void WhenIClickTheAddNewPropertyButton()
+        {
+            PropertyOwnersPage propertyOwnersPage = new PropertyOwnersPage();
+            propertyOwnersPage.ClickAddNewProperty();
+        }
+
+        [Then(@"the Page will navigate to ""(.*)"" Page")]
+        public void ThenThePageWillNavigateToPage(string addNewPropertyPage)
+        {
+            Assert.AreEqual(addNewPropertyPage, PublicPandM.PropertiesAndMethods._driver.Title);
+        }
+
+        [When(
+            @"i fill the Property Details with the data from form below and also tick Owner Occupied and click Next button")]
+        public void WhenIFillThePropertyDetailsWithTheDataFromFormBelowAndAlsoTickOwnerOccupiedAndClickNextButton(
+            Table table)
+        {
+            AddNewPropertyPage addNewPropertyPage=new AddNewPropertyPage();
+            addNewPropertyPage.enterContextIntoSearchAddress();
+        }
+
+        [Then(@"should mobe to ""(.*)"" Page")]
+        public void ThenShouldMobeToPage(string p0)
+        {
+        }
     }
 }

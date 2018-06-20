@@ -77,7 +77,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Features\AddNewProperties.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +92,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MoveToProperties.feature</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddNewPropertyPage.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\DashboardPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
