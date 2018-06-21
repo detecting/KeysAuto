@@ -101,7 +101,12 @@ namespace KeysAuto.Pages
             Table table)
         {
             AddNewPropertyPage addNewPropertyPage=new AddNewPropertyPage();
-
+//            Property Name
+            addNewPropertyPage.PropertyName("");
+            //Property  type
+            addNewPropertyPage.PropertyType("");
+            addNewPropertyPage.SearchAddress("");
+            addNewPropertyPage.TextDescription("");
         }
 
         [Then(@"should mobe to ""(.*)"" Page")]
