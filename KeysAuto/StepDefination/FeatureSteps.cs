@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using KeysAuto.PublicPandM;
 using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -186,8 +188,28 @@ namespace KeysAuto.Pages
         [Then(@"the item wiil be added and the page move to ""(.*)"" Page")]
         public void ThenTheItemWiilBeAddedAndThePageMoveToPage(string myPropertiestitle)
         {
-
             Assert.AreEqual(myPropertiestitle, PublicPandM.PropertiesAndMethods._driver.Title);
         }
-    }
+
+
+        [Given(@"I get into PropertyOwners")]
+        public void GivenIGetIntoPropertyOwners()
+        {
+        }
+
+        [When(@"I have entered ""(.*)"" in to the search box and I press the search button")]
+        public void WhenIHaveEnteredInToTheSearchBoxAndIPressTheSearchButton(string inputSearch)
+        {
+            DashboardPage dashboardPage = new DashboardPage();
+            dashboardPage.Search(inputSearch);
+         }
+
+        [Then(@"the result should show up")]
+        public void ThenTheResultShouldShowUpWithoutAlert()
+        {
+            
+        }
+
+
+     }
 }

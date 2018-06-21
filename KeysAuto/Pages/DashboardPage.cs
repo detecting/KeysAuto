@@ -35,25 +35,27 @@ namespace KeysAuto.Pages
         ///html/body/div[1]/div/div[2]/div[1]
         [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div/div[2]/div[1]")]
         IWebElement ClickOwner { get; set; }
+
         [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div/div[2]/a[2]")]
         IWebElement LinkPropertiesForRent { get; set; }
 
         [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div/div[2]/a[3]")]
         IWebElement LinkMarketPlace { get; set; }
 
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/input[1]")]
+        IWebElement InputSearch { get; set; }
 
         [FindsBy(How = How.XPath,
-            Using = "//*[@id=\"main - content\"]/section/div[3]/div[1]/div[1]/div/div[2]/div/a[1]/h5")]
-        IWebElement AMyProperties { get; set; }
+            Using = "/html[1]/body[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/i[1]")]
+        IWebElement BtnSearch { get; set; }
 
-        [FindsBy(How = How.XPath,
-            Using = "//*[@id=\"main - content\"]/section/div[3]/div[1]/div[1]/div/div[2]/div/a[2]/h5")]
-        IWebElement AMyTenants { get; set; }
-
-        [FindsBy(How = How.XPath,
-            Using = "//*[@id=\"main - content\"]/section/div[3]/div[1]/div[1]/div/div[2]/div/a[3]")]
-        IWebElement AFinanceDetails { get; set; }
-
+        public void Search(string inputSearing)
+        {
+            InputSearch.Clear();
+            InputSearch.SendKeys(inputSearing);
+            BtnSearch.Click();
+        }
         public PropertyOwnersPage SelectPropertiesUnderOwner(string properies)
         {
             IWebElement toBeSelect = null;
@@ -71,6 +73,7 @@ namespace KeysAuto.Pages
                     toBeSelect = item;
                 }
             }
+
             toBeSelect.Click();
             return new PropertyOwnersPage();
         }

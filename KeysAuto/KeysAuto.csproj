@@ -97,6 +97,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MoveToProperties.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\Searching.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Searching.feature</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddNewPropertyPage.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\DashboardPage.cs" />
@@ -104,6 +109,7 @@
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\MyPropertiesPage.cs" />
     <Compile Include="Pages\PropertyOwnersPage.cs" />
+    <Compile Include="Pages\SearchResult.cs" />
     <Compile Include="PublicPandM\Browser.cs" />
     <Compile Include="StepDefination\FeatureSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +132,10 @@
     <None Include="Features\MoveToProperties.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MoveToProperties.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Searching.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Searching.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
