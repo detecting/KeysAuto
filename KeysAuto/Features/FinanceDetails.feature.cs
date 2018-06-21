@@ -18,20 +18,20 @@ namespace KeysAuto.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("AddNewProperties")]
-    public partial class AddNewPropertiesFeature
+    [NUnit.Framework.DescriptionAttribute("FinanceDetails")]
+    public partial class FinanceDetailsFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "AddNewProperties.feature"
+#line 1 "FinanceDetails.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "AddNewProperties", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "FinanceDetails", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -85,25 +85,11 @@ namespace KeysAuto.Features
  testRunner.When("I select \"Properties\" under Owner", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
  testRunner.Then("I will go to \"Properties | Property Community\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add Property Finance and so on")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void AddPropertyFinanceAndSoOn()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Property Finance and so on", new string[] {
-                        "mytag"});
-#line 14
-this.ScenarioSetup(scenarioInfo);
-#line 2
-this.FeatureBackground();
-#line 15
-testRunner.Given("I am at the PropertyOwners page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 16
+#line 11
+ testRunner.Given("I am at the PropertyOwners page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 12
  testRunner.When("I click the  Add New Property button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
+#line 13
  testRunner.Then("the Page will navigate to \"Properties | Add New Property\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -132,11 +118,43 @@ testRunner.Given("I am at the PropertyOwners page", ((string)(null)), ((TechTalk
                         "2015",
                         "Good Condition",
                         "Monthly"});
-#line 18
+#line 14
  testRunner.When("i fill the Property Details with the data from form below and also tick Owner Occ" +
                     "upied and click Next button", ((string)(null)), table2, "When ");
-#line 21
+#line 17
  testRunner.Then("should mobe to \"Finance Details\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add Finance Details")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
+        public virtual void AddFinanceDetails()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Finance Details", new string[] {
+                        "mytag"});
+#line 21
+this.ScenarioSetup(scenarioInfo);
+#line 2
+this.FeatureBackground();
+#line 22
+ testRunner.Given("I get into the FinanceDetails page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "PurchasePrice",
+                        "Mortgage",
+                        "HomeValue",
+                        "HomeValueType"});
+            table3.AddRow(new string[] {
+                        "500",
+                        "100",
+                        "200",
+                        "Registered"});
+#line 23
+ testRunner.When("I fill all the form and I click save button", ((string)(null)), table3, "When ");
+#line 26
+ testRunner.Then("the item wiil be added and the page move to \"Properties | Property Community\" Pag" +
+                    "e", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

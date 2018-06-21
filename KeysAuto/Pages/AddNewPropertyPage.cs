@@ -17,7 +17,8 @@ namespace KeysAuto.Pages
             PageFactory.InitElements(PublicPandM.PropertiesAndMethods._driver, this);
         }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[2]/div[1]/div[1]/input")]
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[2]/div[1]/div[1]/input[1]")]
         IWebElement InputPropertyName { get; set; }
 
         [FindsBy(How = How.XPath,
@@ -25,36 +26,53 @@ namespace KeysAuto.Pages
 //        [FindsBy(How = How.XPath, Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[2]/div[2]/div[1]/div[2]/div[3]")]
         IWebElement DpdPropertyType { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"autocomplete\"]")]
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[3]/div[1]/div[1]/input[1]")]
         IWebElement InputSearchAddress { get; set; }
 
         [FindsBy(How = How.XPath,
             Using = "//html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[3]/div[2]/div[1]/textarea[1]")]
-        public IWebElement TextDescription { get; set; }
+        IWebElement TextDescription { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[4]/div/div[1]/div[1]/input")]
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[4]/div[1]/div[1]/div[1]/input[1]")]
         IWebElement InputTargetRent { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[4]/div/div[2]/div")]
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[4]/div[1]/div[2]/div[1]")]
         IWebElement DdpRentType { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[5]/div[1]/div/input")]
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[5]/div[1]/div[1]/input[1]")]
         IWebElement InputLandArea { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[5]/div[2]/div/input")]
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[5]/div[2]/div[1]/input[1]")]
         IWebElement InputFloorArea { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[6]/div[1]/div[1]/input")]
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[6]/div[1]/div[1]/input[1]")]
         IWebElement InputBedrooms { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[6]/div[2]/div[1]/input")]
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[6]/div[2]/div[1]/input[1]")]
         IWebElement InputBathrooms { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[7]/div[1]/div[1]/input")]
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[7]/div[1]/div[1]/input[1]")]
         IWebElement InputCarparks { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"property - details\"]/div[7]/div[2]/div[1]/input")]
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[7]/div[2]/div[1]/input[1]")]
         IWebElement InputYearBuilt { get; set; }
+
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[8]/div[1]/input[1]")]
+        IWebElement CBOwnerOccupied { get; set; }
+
+        [FindsBy(How = How.XPath,
+            Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[10]/div[1]/button[1]")]
+        IWebElement BtnNext { get; set; }
 
         public void PropertyName(string propertyName)
         {
@@ -128,28 +146,56 @@ namespace KeysAuto.Pages
             }
         }
 
-        public void LandArea(int landArea)
+        public void LandArea(string landArea)
         {
+            InputLandArea.Clear();
+            InputLandArea.SendKeys(landArea);
         }
 
-        public void FloorArea(int floorArea)
+        public void FloorArea(string floorArea)
         {
+            InputFloorArea.Clear();
+            InputFloorArea.SendKeys(floorArea);
         }
 
-        public void Bedrooms(int bedrooms)
+        public void Bedrooms(string bedrooms)
         {
+            InputBedrooms.Clear();
+            InputBedrooms.SendKeys(bedrooms);
         }
 
-        public void Bathrooms(int bathrooms)
+        public void Bathrooms(string bathrooms)
         {
+            InputBathrooms.Clear();
+            InputBathrooms.SendKeys(bathrooms);
         }
 
-        public void Carparks(int carparks)
+        public void Carparks(string carparks)
         {
+            InputCarparks.Clear();
+            InputCarparks.SendKeys(carparks);
         }
 
-        public void YearBuilt(int yearBuilt)
+        public void YearBuilt(string yearBuilt)
         {
+            InputYearBuilt.Clear();
+            InputYearBuilt.SendKeys(yearBuilt);
+        }
+
+        public void OwnerOccupied()
+        {
+            CBOwnerOccupied.Click();
+        }
+
+        public FinancedetailsPage Next()
+        {
+            if (BtnNext.Displayed && BtnNext.Enabled)
+            {
+                BtnNext.Click();
+                return new FinancedetailsPage();
+            }
+
+            return null;
         }
     }
 }

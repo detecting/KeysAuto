@@ -15,6 +15,7 @@ namespace KeysAuto.Pages
     {
         public BasePage()
         {
+
         }
     }
 }

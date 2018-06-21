@@ -15,10 +15,15 @@ namespace KeysAuto.Pages
     {
         //context injection
         public LoginInfo LoginInfo { get; set; }
+        public PropertyDetails PropertyDetails { get; set; }
+        public FinanceDetails FinanceDetails { get; set; }
 
-        public Login(LoginInfo loginInfo)
+
+        public Login(LoginInfo loginInfo, PropertyDetails propertyDetails, FinanceDetails financeDetails)
         {
-            this.LoginInfo = loginInfo;
+            LoginInfo = loginInfo;
+            PropertyDetails = propertyDetails;
+            FinanceDetails = financeDetails;
         }
 
         [Given(@"I have open the application")]
@@ -95,23 +100,94 @@ namespace KeysAuto.Pages
             Assert.AreEqual(addNewPropertyPage, PublicPandM.PropertiesAndMethods._driver.Title);
         }
 
+
         [When(
             @"i fill the Property Details with the data from form below and also tick Owner Occupied and click Next button")]
         public void WhenIFillThePropertyDetailsWithTheDataFromFormBelowAndAlsoTickOwnerOccupiedAndClickNextButton(
             Table table)
         {
-            AddNewPropertyPage addNewPropertyPage=new AddNewPropertyPage();
-//            Property Name
-            addNewPropertyPage.PropertyName("");
+            //get the data from table
+            var data = table.CreateDynamicSet();
+
+            foreach (var item in data)
+            {
+                PropertyDetails.PropertyName = item.PropertyName;
+                PropertyDetails.PropertyType = item.PropertyType;
+                PropertyDetails.SearchAddress = item.SearchAddress;
+                PropertyDetails.TargetRent = item.TargetRent.ToString();
+                PropertyDetails.LandArea = item.LandArea.ToString();
+                PropertyDetails.FloorArea = item.FloorArea.ToString();
+                PropertyDetails.Bedroom = item.Bedroom.ToString();
+                PropertyDetails.Bathroom = item.Bathroom.ToString();
+                PropertyDetails.ParkingSpace = item.ParkingSpace.ToString();
+                PropertyDetails.YearBuilt = item.YearBuilt.ToString();
+                PropertyDetails.Description = item.Description;
+                PropertyDetails.RentType = item.RentType;
+            }
+
+            //new AddNewPropertyPage
+            AddNewPropertyPage addNewPropertyPage = new AddNewPropertyPage();
+
+            //            Property Name
+            addNewPropertyPage.PropertyName(PropertyDetails.PropertyName);
             //Property  type
-            addNewPropertyPage.PropertyType("");
-            addNewPropertyPage.SearchAddress("");
-            addNewPropertyPage.TextDescription("");
+            addNewPropertyPage.PropertyType(PropertyDetails.PropertyType);
+            addNewPropertyPage.SearchAddress(PropertyDetails.SearchAddress);
+            addNewPropertyPage.Description(PropertyDetails.Description);
+            addNewPropertyPage.TargetRent(PropertyDetails.TargetRent);
+            addNewPropertyPage.RentType(PropertyDetails.RentType);
+            addNewPropertyPage.LandArea(PropertyDetails.LandArea);
+            addNewPropertyPage.FloorArea(PropertyDetails.FloorArea);
+            addNewPropertyPage.Bedrooms(PropertyDetails.Bedroom);
+            addNewPropertyPage.Bathrooms(PropertyDetails.Bathroom);
+            addNewPropertyPage.Carparks(PropertyDetails.ParkingSpace);
+            addNewPropertyPage.YearBuilt(PropertyDetails.YearBuilt);
+            addNewPropertyPage.OwnerOccupied();
+            addNewPropertyPage.Next();
         }
 
         [Then(@"should mobe to ""(.*)"" Page")]
-        public void ThenShouldMobeToPage(string p0)
+        public void ThenShouldMobeToPage(string financeDetailsString)
         {
+            //Finance Details page
+            FinancedetailsPage financedetailsPage = new FinancedetailsPage();
+            Assert.AreEqual(financedetailsPage.Financedetails(), financeDetailsString);
+        }
+
+
+        [Given(@"I get into the FinanceDetails page")]
+        public void GivenIGetIntoTheFinanceDetailsPage()
+        {
+        }
+
+        [When(@"I fill all the form and I click save button")]
+        public void WhenIFillAllTheFormAndIClickSaveButton(Table table)
+        {
+            //get the data form FinanceDetails
+            var data = table.CreateDynamicSet();
+            foreach (var item in data)
+            {
+                FinanceDetails.HomeValue = item.HomeValue.ToString();
+                FinanceDetails.HomeValueType = item.HomeValueType;
+                FinanceDetails.Mortgage = item.Mortgage.ToString();
+                FinanceDetails.PurchasePrice = item.PurchasePrice.ToString();
+            }
+
+            //new page
+            FinancedetailsPage financedetailsPage = new FinancedetailsPage();
+
+            financedetailsPage.PurchasePrice(FinanceDetails.PurchasePrice);
+            financedetailsPage.Mortgage(FinanceDetails.Mortgage);
+            financedetailsPage.HomeValue(FinanceDetails.HomeValue);
+            financedetailsPage.HomeValueType(FinanceDetails.HomeValueType);
+            financedetailsPage.Save();
+        }
+
+        [Then(@"the item wiil be added and the page move to ""(.*)"" Page")]
+        public void ThenTheItemWiilBeAddedAndThePageMoveToPage(string myPropertiestitle)
+        {
+
+            Assert.AreEqual(myPropertiestitle, PublicPandM.PropertiesAndMethods._driver.Title);
         }
     }
 }

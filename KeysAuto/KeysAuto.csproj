@@ -82,6 +82,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AddNewProperties.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\FinanceDetails.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceDetails.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Login.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,7 +100,9 @@
     <Compile Include="Pages\AddNewPropertyPage.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\DashboardPage.cs" />
+    <Compile Include="Pages\FinancedetailsPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\MyPropertiesPage.cs" />
     <Compile Include="Pages\PropertyOwnersPage.cs" />
     <Compile Include="PublicPandM\Browser.cs" />
     <Compile Include="StepDefination\FeatureSteps.cs" />
@@ -107,6 +114,10 @@
     <None Include="Features\AddNewProperties.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>AddNewProperties.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\FinanceDetails.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>FinanceDetails.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Login.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
