@@ -14,5 +14,5 @@ Background:
 Scenario: Searching what was created
 	Given I get into PropertyOwners
 	When I have entered "Morgan House" in to the search box and I press the search button
-	Then the result should show up
+	Then the result "Morgan House" should show up
 

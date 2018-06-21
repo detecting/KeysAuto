@@ -11,7 +11,7 @@ Background:
 
 
 @mytag
-Scenario: Add Property Finance and so on
+Scenario: Add Property
 Given I am at the PropertyOwners page
 	When I click the  Add New Property button
 	Then the Page will navigate to "Properties | Add New Property" Page

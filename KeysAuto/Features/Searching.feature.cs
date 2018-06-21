@@ -104,7 +104,7 @@ this.FeatureBackground();
 #line 16
  testRunner.When("I have entered \"Morgan House\" in to the search box and I press the search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 17
- testRunner.Then("the result should show up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the result \"Morgan House\" should show up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -201,15 +201,15 @@ namespace KeysAuto.Pages
         public void WhenIHaveEnteredInToTheSearchBoxAndIPressTheSearchButton(string inputSearch)
         {
             DashboardPage dashboardPage = new DashboardPage();
-            dashboardPage.Search(inputSearch);
-         }
-
-        [Then(@"the result should show up")]
-        public void ThenTheResultShouldShowUpWithoutAlert()
-        {
-            
+           
+            Assert.NotNull(dashboardPage.Search(inputSearch));
         }
 
-
-     }
+        [Then(@"the result ""(.*)"" should show up")]
+        public void ThenTheResultShouldShowUp(string inputSearching)
+        {
+            SearchResultPage searchResultPage = new SearchResultPage();
+            Assert.AreEqual(inputSearching, searchResultPage.SortByTimeAndCheckResults("Latest Date", inputSearching));
+        }
+    }
 }

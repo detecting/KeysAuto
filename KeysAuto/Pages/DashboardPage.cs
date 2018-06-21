@@ -50,12 +50,18 @@ namespace KeysAuto.Pages
             Using = "/html[1]/body[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/i[1]")]
         IWebElement BtnSearch { get; set; }
 
-        public void Search(string inputSearing)
+        public SearchResultPage Search(string inputSearing)
         {
             InputSearch.Clear();
             InputSearch.SendKeys(inputSearing);
             BtnSearch.Click();
+            while (!_driver.Url.Contains("SearchString"))
+            {
+                Thread.Sleep(200);
+            }
+            return new SearchResultPage();
         }
+
         public PropertyOwnersPage SelectPropertiesUnderOwner(string properies)
         {
             IWebElement toBeSelect = null;

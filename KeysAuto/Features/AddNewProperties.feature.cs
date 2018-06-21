@@ -89,11 +89,11 @@ namespace KeysAuto.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add Property Finance and so on")]
+        [NUnit.Framework.DescriptionAttribute("Add Property")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void AddPropertyFinanceAndSoOn()
+        public virtual void AddProperty()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Property Finance and so on", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Property", new string[] {
                         "mytag"});
 #line 14
 this.ScenarioSetup(scenarioInfo);

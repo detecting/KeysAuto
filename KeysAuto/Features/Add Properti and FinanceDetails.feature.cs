@@ -24,7 +24,7 @@ namespace KeysAuto.Features
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "FinanceDetails.feature"
+#line 1 "Add Properti and FinanceDetails.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -127,11 +127,11 @@ namespace KeysAuto.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add Finance Details")]
+        [NUnit.Framework.DescriptionAttribute("Add Property Finance and so on")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void AddFinanceDetails()
+        public virtual void AddPropertyFinanceAndSoOn()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Finance Details", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Property Finance and so on", new string[] {
                         "mytag"});
 #line 21
 this.ScenarioSetup(scenarioInfo);

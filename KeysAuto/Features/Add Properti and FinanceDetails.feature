@@ -18,7 +18,7 @@ Background:
 
 
 @mytag
-Scenario: Add Finance Details
+Scenario:  Add Property Finance and so on
 	Given I get into the FinanceDetails page
 	When I fill all the form and I click save button
 	| PurchasePrice | Mortgage | HomeValue | HomeValueType |
