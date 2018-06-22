@@ -1,27 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.Events;
 using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium.Interactions;
 
 namespace KeysAuto.Pages
 {
     class DashboardPage : BasePage
     {
-        //        private string properies = "Properties";
 
         public DashboardPage()
         {
             PageFactory.InitElements(PublicPandM.PropertiesAndMethods._driver, this);
         }
 
-        //        /html/body/div[5]/div/div[5]/a[1]
         [FindsBy(How = How.XPath, Using = "/html/body/div[5]/div/div[5]/a[1]")]
         public IWebElement BtnSkip { get; set; }
 
@@ -32,7 +22,6 @@ namespace KeysAuto.Pages
         [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div/div[2]/div[1]/div")]
         IWebElement ListOwners { get; set; }
 
-        ///html/body/div[1]/div/div[2]/div[1]
         [FindsBy(How = How.XPath, Using = "/html/body/div[1]/div/div[2]/div[1]")]
         IWebElement ClickOwner { get; set; }
 

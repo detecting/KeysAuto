@@ -23,7 +23,6 @@ namespace KeysAuto.Pages
 
         [FindsBy(How = How.XPath,
             Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[2]/div[2]/div[1]")]
-//        [FindsBy(How = How.XPath, Using = "/html[1]/body[1]/div[2]/section[1]/form[1]/fieldset[1]/div[2]/div[2]/div[1]/div[2]/div[3]")]
         IWebElement DpdPropertyType { get; set; }
 
         [FindsBy(How = How.XPath,
@@ -189,12 +188,12 @@ namespace KeysAuto.Pages
 
         public FinancedetailsPage Next()
         {
+            //check the button is ok
             if (BtnNext.Displayed && BtnNext.Enabled)
             {
                 BtnNext.Click();
                 return new FinancedetailsPage();
             }
-
             return null;
         }
     }

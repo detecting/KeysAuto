@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
@@ -37,6 +33,7 @@ namespace KeysAuto.Pages
                 if (item.Text.Contains(latest))
                 {
                     item.Click();
+                    //onee I click, jump out of the loop, because some error might happen.
                     goto done;
                 }
             }
